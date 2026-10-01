@@ -1,0 +1,16 @@
+{
+  "format": 1,
+  "upstream": {
+    "repository": "https://github.com/pytorch/pytorch",
+    "version": "2.14.1",
+    "sourceRevision": "5c4886908584029761b579af026dcfb627c84070"
+  },
+  "target": "aarch64-apple-darwin",
+  "minimumOS": "14.0",
+  "inputs": [
+    {
+      "url": "https://download.pytorch.org/libtorch/cpu/libtorch-macos-arm64-2.14.1.zip",
+      "sha256": "6ab4e92bed813981cb26434db0ea12aaae7ce7c548d031a5b25032a286de1b58"
+    }
+  ]
+}

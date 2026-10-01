@@ -1,0 +1,78 @@
+{
+  "format": 2,
+  "name": "@greenpandastudios/aug-pytorch",
+  "version": "0.1.0",
+  "compiler": "0.21.0-native.1",
+  "source": "src",
+  "dependencies": {},
+  "native": {
+    "profile": "aug-native-abi-1",
+    "bindings": "native.abi.json",
+    "bindingsSha256": "f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5",
+    "upstream": {
+      "repository": "https://github.com/pytorch/pytorch",
+      "version": "2.14.1",
+      "sourceRevision": "5c4886908584029761b579af026dcfb627c84070"
+    },
+    "artifacts": [
+      {
+        "id": "macos-arm64",
+        "target": {
+          "triple": "aarch64-apple-darwin",
+          "os": "macos",
+          "arch": "arm64",
+          "minimumOS": "14.0",
+          "cpuBaseline": "armv8-a",
+          "libc": "libSystem",
+          "cxxRuntime": "system-libc++",
+          "cxxABI": "apple-libc++",
+          "features": [
+            "cpu",
+            "float64"
+          ]
+        },
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.0/native-macos-arm64.tar.gz",
+        "sha256": "653ec32caa109930ede229ffa5e483018b5e41bea8e95d8115aee3c6df1c7f80",
+        "maximumDownloadBytes": 92501187,
+        "maximumUnpackedBytes": 388367950,
+        "link": {
+          "kind": "dynamic",
+          "libraries": [
+            "lib/libaug_torch.1.dylib"
+          ]
+        },
+        "runtime": {
+          "files": [
+            "lib/libaug_torch.1.dylib",
+            "lib/libc10.dylib",
+            "lib/libomp.dylib",
+            "lib/libtorch_cpu.dylib"
+          ],
+          "closureManifest": "runtime-files.json",
+          "relocation": "loader-relative"
+        },
+        "components": [
+          {
+            "id": "https://github.com/pytorch/pytorch",
+            "version": "2.14.1",
+            "compatibilityKey": "aug-pytorch-runtime",
+            "linkage": "dynamic",
+            "required": true
+          }
+        ],
+        "fileManifest": "files.json",
+        "provenance": "provenance.json",
+        "notices": "THIRD_PARTY_NOTICES.md"
+      }
+    ],
+    "sourceBuild": {
+      "recipe": "native/build.json",
+      "inputs": "native/sources.lock.json",
+      "tools": [
+        "Clang",
+        "Apple macOS SDK"
+      ],
+      "automatic": false
+    }
+  }
+}
