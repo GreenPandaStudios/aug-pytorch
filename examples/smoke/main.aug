@@ -1,4 +1,4 @@
-import Tensor and TensorError and tensor and add and sum and values from "https://github.com/GreenPandaStudios/aug-pytorch#v0.1.0"
+import Tensor and TensorError and tensor and add and sum and values from "https://github.com/GreenPandaStudios/aug-pytorch#v0.1.1"
 try:
     own Tensor left = tensor(values=[1.0, 2.0, 3.0])
     own Tensor right = tensor(values=[4.0, 5.0, 6.0])

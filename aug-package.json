@@ -1,8 +1,8 @@
 {
   "format": 2,
   "name": "@greenpandastudios/aug-pytorch",
-  "version": "0.1.0",
-  "compiler": "0.21.0-native.1",
+  "version": "0.1.1",
+  "compiler": "0.21.0",
   "source": "src",
   "dependencies": {},
   "native": {
@@ -31,7 +31,7 @@
             "float64"
           ]
         },
-        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.0/native-macos-arm64.tar.gz",
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.1/native-macos-arm64.tar.gz",
         "sha256": "653ec32caa109930ede229ffa5e483018b5e41bea8e95d8115aee3c6df1c7f80",
         "maximumDownloadBytes": 92501187,
         "maximumUnpackedBytes": 388367950,
