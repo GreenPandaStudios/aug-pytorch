@@ -35,38 +35,42 @@ Within an unsafe block, it returns [`_values`](api.aug.md#symbol-_values) with `
 
 It is private to its defining scope. It takes `values` as `List<float>`. It returns ownership of [`Tensor`](bindings.aug.md#symbol-Tensor). Failures can raise [`TensorError`](contracts.aug.md#symbol-TensorError).
 
-Native C implementation; only its declared contract is visible here.
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_torch_tensor_from_f64_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. The caller owns the returned handle. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_add"></a>
 ## `_add` · [source](api.aug#L5)
 
 It is private to its defining scope. It takes `left` and `right` as [`Tensor`](bindings.aug.md#symbol-Tensor). It returns ownership of [`Tensor`](bindings.aug.md#symbol-Tensor). Failures can raise [`TensorError`](contracts.aug.md#symbol-TensorError).
 
-Native C implementation; only its declared contract is visible here.
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_torch_tensor_add_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. `left` lends read access for this call; `right` lends read access for this call. The caller owns the returned handle. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_sum"></a>
 ## `_sum` · [source](api.aug#L6)
 
 It is private to its defining scope. It takes `tensor` as [`Tensor`](bindings.aug.md#symbol-Tensor). It returns `float`. Failures can raise [`TensorError`](contracts.aug.md#symbol-TensorError).
 
-Native C implementation; only its declared contract is visible here.
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_torch_tensor_sum_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. `tensor` lends read access for this call. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_values"></a>
 ## `_values` · [source](api.aug#L7)
 
 It is private to its defining scope. It takes `tensor` as [`Tensor`](bindings.aug.md#symbol-Tensor). It returns `List<float>`. Failures can raise [`TensorError`](contracts.aug.md#symbol-TensorError).
 
-Native C implementation; only its declared contract is visible here.
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_torch_tensor_values_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. `tensor` lends read access for this call. August copies the returned buffer, then calls `aug_torch_values_release_v1` to release it. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_liveTensors"></a>
 ## `_liveTensors` · [source](api.aug#L25)
 
-It is private to its defining scope. It returns `int`. Native C implementation; only its declared contract is visible here.
+It is private to its defining scope. It returns `int`.
+
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_probe_live_tensors_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_liveBuffers"></a>
 ## `_liveBuffers` · [source](api.aug#L26)
 
-It is private to its defining scope. It returns `int`. Native C implementation; only its declared contract is visible here.
+It is private to its defining scope. It returns `int`.
+
+Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). It calls `aug_probe_live_buffers_v1` through the C ABI on the caller thread; a blocking native call blocks that thread. Its contract does not permit worker entry. The compiler checks the provider, descriptor digest, signature and ownership at August call sites. The native author promises not to retain inputs, enter August from foreign threads, or unwind across the C boundary; internal native workers may run. The compiler does not prove those promises.
 
 <a id="symbol-_consumeAndFail"></a>
 ## `_consumeAndFail` · [source](api.aug#L28)
@@ -107,29 +111,25 @@ Tests [`tensor`](api.aug.md#symbol-tensor). Each case gets fresh setup and depen
 
 #### `adds_real_tensors` · [source](api.aug#L42)
 
-It sets `left` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0`, `3.0`. `left` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. It sets `right` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `4.0`, `5.0`, `6.0`. `right` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value.
+It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0`, `3.0` and stores the result in owned `left` ([`Tensor`](bindings.aug.md#symbol-Tensor)). It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `4.0`, `5.0`, `6.0` and stores the result in owned `right` ([`Tensor`](bindings.aug.md#symbol-Tensor)). It calls [`add`](api.aug.md#symbol-add) with `left` and `right` and stores the result in owned `result` ([`Tensor`](bindings.aug.md#symbol-Tensor)). The test requires [`sum`](api.aug.md#symbol-sum) with `tensor` from `result` equals `21.0`.
 
-It sets `result` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`add`](api.aug.md#symbol-add) with `left` and `right`. `result` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. The test requires [`sum`](api.aug.md#symbol-sum) with `tensor` from `result` equals `21.0`. It sets `output` of type `List<float>` to [`values`](api.aug.md#symbol-values) with `tensor` from `result`.
-
-The test requires the number of elements in `output` equals `3`.
+It sets `output` of type `List<float>` to [`values`](api.aug.md#symbol-values) with `tensor` from `result`. The test requires the number of elements in `output` equals `3`.
 
 ### `ownership`
 
 #### `transfers_into_a_field_and_releases_the_old_tensor` · [source](api.aug#L51)
 
-It sets `before` to `0`. Within an unsafe block, it gets `before` from [`_liveTensors`](api.aug.md#symbol-_liveTensors). Native operations must satisfy their declared C contracts. Within a task and ownership scope, it sets `initial` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`.
+It sets `before` to `0`. Within an unsafe block, it gets `before` from [`_liveTensors`](api.aug.md#symbol-_liveTensors). Native operations must satisfy their declared C contracts. Within a task and ownership scope, it calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0` and stores the result in owned `initial` ([`Tensor`](bindings.aug.md#symbol-Tensor)).
 
-`initial` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. It sets `holder` of type [`_TensorHolder`](api.aug.md#symbol-_TensorHolder) to a [`_TensorHolder`](api.aug.md#symbol-_TensorHolder) with `item` from `initial`. `holder` of type [`_TensorHolder`](api.aug.md#symbol-_TensorHolder) owns this value. It sets `replacement` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `7.0`.
+It creates [`_TensorHolder`](api.aug.md#symbol-_TensorHolder) with `item` from `initial` and stores the result in owned `holder` ([`_TensorHolder`](api.aug.md#symbol-_TensorHolder)). It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `7.0` and stores the result in owned `replacement` ([`Tensor`](bindings.aug.md#symbol-Tensor)). With temporary permission to change `holder`, it calls [`_replace`](api.aug.md#symbol-_replace) with `holder` and `replacement`. The test requires [`holder.total`](api.aug.md#symbol-_TensorHolder.total) equals `7.0`.
 
-`replacement` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. With temporary permission to change `holder`, it calls [`_replace`](api.aug.md#symbol-_replace) with `holder` and `replacement`. The test requires [`holder.total`](api.aug.md#symbol-_TensorHolder.total) equals `7.0`. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals (`before` plus `1`).
+Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals (`before` plus `1`). Native operations must satisfy their declared C contracts. On leaving this scope, join its child tasks and release its local values. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`.
 
-Native operations must satisfy their declared C contracts. On leaving this scope, join its child tasks and release its local values. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`. Native operations must satisfy their declared C contracts.
+Native operations must satisfy their declared C contracts.
 
 #### `preserves_native_error_methods` · [source](api.aug#L66)
 
-It sets `caught` to `false`. It sets `left` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0`. `left` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. It sets `right` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0`, `3.0`.
-
-`right` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value.
+It sets `caught` to `false`. It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0` and stores the result in owned `left` ([`Tensor`](bindings.aug.md#symbol-Tensor)). It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`, `2.0`, `3.0` and stores the result in owned `right` ([`Tensor`](bindings.aug.md#symbol-Tensor)).
 
 It tries to call [`add`](api.aug.md#symbol-add) with `left` and `right`. If this work raises [`TensorError`](contracts.aug.md#symbol-TensorError) as `error`, it sets `caught` to the byte length of [`error.explain`](contracts.aug.md#symbol-TensorError.explain) is positive. The test requires `caught` is true.
 
@@ -137,17 +137,15 @@ It tries to call [`add`](api.aug.md#symbol-add) with `left` and `right`. If this
 
 It sets `before` to `0`. Within an unsafe block, it gets `before` from [`_liveTensors`](api.aug.md#symbol-_liveTensors). Native operations must satisfy their declared C contracts. It sets `caught` to `false`.
 
-It sets `value` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0`. `value` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. It calls [`_consumeAndFail`](api.aug.md#symbol-_consumeAndFail) with `value`. If this work raises [`TensorError`](contracts.aug.md#symbol-TensorError) as `error`, it sets `caught` to `error.code` equals `99`.
+It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `1.0` and stores the result in owned `value` ([`Tensor`](bindings.aug.md#symbol-Tensor)). It calls [`_consumeAndFail`](api.aug.md#symbol-_consumeAndFail) with `value`. If this work raises [`TensorError`](contracts.aug.md#symbol-TensorError) as `error`, it sets `caught` to `error.code` equals `99`. The test requires `caught` is true.
 
-The test requires `caught` is true. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`; then the test requires [`_liveBuffers`](api.aug.md#symbol-_liveBuffers) equals `0`. Native operations must satisfy their declared C contracts.
+Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`; then the test requires [`_liveBuffers`](api.aug.md#symbol-_liveBuffers) equals `0`. Native operations must satisfy their declared C contracts.
 
 #### `releases_scoped_and_unused_results` · [source](api.aug#L89)
 
-It sets `before` to `0`. Within an unsafe block, it gets `before` from [`_liveTensors`](api.aug.md#symbol-_liveTensors). Native operations must satisfy their declared C contracts. Within a task and ownership scope, it sets `value` of type [`Tensor`](bindings.aug.md#symbol-Tensor) to [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `2.0`.
+It sets `before` to `0`. Within an unsafe block, it gets `before` from [`_liveTensors`](api.aug.md#symbol-_liveTensors). Native operations must satisfy their declared C contracts. Within a task and ownership scope, it calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `2.0` and stores the result in owned `value` ([`Tensor`](bindings.aug.md#symbol-Tensor)); then it sets `output` of type `List<float>` to [`values`](api.aug.md#symbol-values) with `tensor` from `value`; then the test requires the item at index `0` in `output` equals `2.0`.
 
-`value` of type [`Tensor`](bindings.aug.md#symbol-Tensor) owns this value. It sets `output` of type `List<float>` to [`values`](api.aug.md#symbol-values) with `tensor` from `value`. The test requires the item at index `0` in `output` equals `2.0`. On leaving this scope, join its child tasks and release its local values.
-
-It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `3.0`. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`; then the test requires [`_liveBuffers`](api.aug.md#symbol-_liveBuffers) equals `0`. Native operations must satisfy their declared C contracts.
+On leaving this scope, join its child tasks and release its local values. It calls [`tensor`](api.aug.md#symbol-tensor) with `values` from a list containing `3.0`. Within an unsafe block, the test requires [`_liveTensors`](api.aug.md#symbol-_liveTensors) equals `before`; then the test requires [`_liveBuffers`](api.aug.md#symbol-_liveBuffers) equals `0`. Native operations must satisfy their declared C contracts.
 
 ## Dependencies
 

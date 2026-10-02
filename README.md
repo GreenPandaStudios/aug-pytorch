@@ -2,7 +2,7 @@
 
 CPU tensors backed by LibTorch and ATen. This first API copies float64 values, adds tensors, computes sums, and copies results back to August.
 
-This package targets the August `0.21.0` LLVM preview on macOS 14 or later (ARM64), and Debian/Ubuntu GNU/Linux with glibc 2.36 or later (x64 and ARM64). Its source is ready for qualification; consumption requires the matching public compiler and native release assets. It does not work with August 0.20.1.
+This package targets the August `0.22.0` LLVM preview on macOS 14 or later (ARM64), and Debian/Ubuntu GNU/Linux with glibc 2.36 or later (x64 and ARM64). Its source is ready for qualification; consumption requires the matching public compiler and native release assets. It does not work with August 0.20.1.
 
 ## Use it
 
@@ -54,3 +54,7 @@ The `v0.1.4` release workflow downloads the reviewed three-platform candidate ru
 If publication stops, retry the release workflow on main with the existing tag in its `tag` input. It checks out that immutable source tag and uses the corrected maintainer publisher. It rechecks the source and artifacts, leaves partial uploads draft, and refuses to overwrite different bytes.
 
 The 0.1.4 adapter makes its cleanup counter exports signed int64 values, matching the reviewed August descriptor. All three platform candidates passed native clients before publication.
+
+## August 0.22 source package
+
+This source tag targets the isolated-worker compiler preview. Its native bindings are unchanged and its manifest deliberately reuses the previously published, checksum-pinned native archives. The existing native ABI remains unchanged. These bindings do not yet declare worker safety; use them on their creating heap. The separate GPU package qualifies worker entry explicitly.
