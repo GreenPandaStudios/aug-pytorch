@@ -11,7 +11,7 @@ After those preview assets are published:
 ```sh
 aug init native-example
 cd native-example
-aug add https://github.com/GreenPandaStudios/aug-pytorch#v0.1.3 --as pytorch
+aug add https://github.com/GreenPandaStudios/aug-pytorch#v0.1.4 --as pytorch
 ```
 
 Replace `main.aug` with:
@@ -49,6 +49,8 @@ Maintain binding declarations and the descriptor together. Run `aug check .`, `a
 
 The prebuilt archive includes upstream notices, provenance, a runtime dependency inventory and a whole-file manifest. Installing this package does not run build scripts. An unsupported target or missing artifact is an error; there is no automatic source-build fallback.
 
-The `v0.1.3` release workflow downloads the reviewed three-platform candidate run, verifies unchanged binding and build inputs, and publishes the exact pinned archives. `release-candidates.json` identifies that run; it is separate from native source inputs. No native toolchain is needed by consumers. See [the native maintainer workflow](native/LINUX.md). The matching August compiler release and public installed-CLI checks must pass before claiming complete platform support.
+The `v0.1.4` release workflow downloads the reviewed three-platform candidate run, verifies unchanged binding and build inputs, and publishes the exact pinned archives. `release-candidates.json` identifies that run; it is separate from native source inputs. No native toolchain is needed by consumers. See [the native maintainer workflow](native/LINUX.md). The matching August compiler release and public installed-CLI checks must pass before claiming complete platform support.
 
 If publication stops, retry the release workflow on main with the existing tag in its `tag` input. It checks out that immutable source tag and uses the corrected maintainer publisher. It rechecks the source and artifacts, leaves partial uploads draft, and refuses to overwrite different bytes.
+
+The 0.1.4 adapter makes its cleanup counter exports signed int64 values, matching the reviewed August descriptor. All three platform candidates passed native clients before publication.
