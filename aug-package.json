@@ -16,6 +16,141 @@
     },
     "artifacts": [
       {
+        "id": "linux-arm64",
+        "target": {
+          "triple": "aarch64-unknown-linux-gnu",
+          "os": "linux",
+          "arch": "arm64",
+          "minimumLibc": "2.36",
+          "cpuBaseline": "armv8-a",
+          "libc": "glibc",
+          "cxxRuntime": "bundled-libstdc++",
+          "cxxABI": "itanium-cxx11",
+          "features": [
+            "cpu",
+            "float64"
+          ]
+        },
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.3/native-linux-arm64.tar.gz",
+        "sha256": "905578afedf709682ee8657367e62405c92ff919890f415bf11d0932cb03a8f5",
+        "maximumDownloadBytes": 205706892,
+        "maximumUnpackedBytes": 443076410,
+        "link": {
+          "kind": "dynamic",
+          "libraries": [
+            "lib/libaug_torch.so.1"
+          ]
+        },
+        "runtime": {
+          "files": [
+            "lib/libarm_compute.so",
+            "lib/libarm_compute_graph.so",
+            "lib/libaug_torch.so.1",
+            "lib/libc10.so",
+            "lib/libgcc_s.so.1",
+            "lib/libgfortran.so.5",
+            "lib/libgomp.so.1",
+            "lib/libopenblas.so.0",
+            "lib/libstdc++.so.6",
+            "lib/libtorch_cpu.so",
+            "lib/libz.so.1"
+          ],
+          "closureManifest": "runtime-files.json",
+          "relocation": "loader-relative"
+        },
+        "components": [
+          {
+            "id": "https://github.com/pytorch/pytorch",
+            "version": "2.14.1",
+            "compatibilityKey": "aug-pytorch-runtime",
+            "linkage": "dynamic",
+            "required": true
+          },
+          {
+            "id": "gcc-runtime",
+            "version": "12.2.0-14+deb12u1",
+            "compatibilityKey": "gcc-runtime",
+            "linkage": "dynamic",
+            "required": true
+          },
+          {
+            "id": "arm-compute",
+            "version": "53.2.0",
+            "compatibilityKey": "arm-compute",
+            "linkage": "dynamic",
+            "required": true
+          },
+          {
+            "id": "openblas",
+            "version": "0.3.34",
+            "compatibilityKey": "openblas",
+            "linkage": "dynamic",
+            "required": true
+          }
+        ],
+        "fileManifest": "files.json",
+        "provenance": "provenance.json",
+        "notices": "THIRD_PARTY_NOTICES.md"
+      },
+      {
+        "id": "linux-x64",
+        "target": {
+          "triple": "x86_64-unknown-linux-gnu",
+          "os": "linux",
+          "arch": "x64",
+          "minimumLibc": "2.36",
+          "cpuBaseline": "x86-64",
+          "libc": "glibc",
+          "cxxRuntime": "bundled-libstdc++",
+          "cxxABI": "itanium-cxx11",
+          "features": [
+            "cpu",
+            "float64"
+          ]
+        },
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.3/native-linux-x64.tar.gz",
+        "sha256": "16450b30076c558c21d436c5cd746f5de3f21aa36ffd2d07787320afc2781b04",
+        "maximumDownloadBytes": 207516947,
+        "maximumUnpackedBytes": 535020169,
+        "link": {
+          "kind": "dynamic",
+          "libraries": [
+            "lib/libaug_torch.so.1"
+          ]
+        },
+        "runtime": {
+          "files": [
+            "lib/libaug_torch.so.1",
+            "lib/libc10.so",
+            "lib/libgcc_s.so.1",
+            "lib/libgomp.so.1",
+            "lib/libstdc++.so.6",
+            "lib/libtorch_cpu.so"
+          ],
+          "closureManifest": "runtime-files.json",
+          "relocation": "loader-relative"
+        },
+        "components": [
+          {
+            "id": "https://github.com/pytorch/pytorch",
+            "version": "2.14.1",
+            "compatibilityKey": "aug-pytorch-runtime",
+            "linkage": "dynamic",
+            "required": true
+          },
+          {
+            "id": "gcc-runtime",
+            "version": "12.2.0-14+deb12u1",
+            "compatibilityKey": "gcc-runtime",
+            "linkage": "dynamic",
+            "required": true
+          }
+        ],
+        "fileManifest": "files.json",
+        "provenance": "provenance.json",
+        "notices": "THIRD_PARTY_NOTICES.md"
+      },
+      {
         "id": "macos-arm64",
         "target": {
           "triple": "aarch64-apple-darwin",
@@ -31,10 +166,10 @@
             "float64"
           ]
         },
-        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.1/native-macos-arm64.tar.gz",
-        "sha256": "653ec32caa109930ede229ffa5e483018b5e41bea8e95d8115aee3c6df1c7f80",
-        "maximumDownloadBytes": 92501187,
-        "maximumUnpackedBytes": 388367950,
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.3/native-macos-arm64.tar.gz",
+        "sha256": "0f49185229acf9b9898841a497d6df57aa0a1627d15ac0d5ab6b762ae4fe4827",
+        "maximumDownloadBytes": 92487966,
+        "maximumUnpackedBytes": 388370911,
         "link": {
           "kind": "dynamic",
           "libraries": [
@@ -69,8 +204,10 @@
       "recipe": "native/build.json",
       "inputs": "native/sources.lock.json",
       "tools": [
+        "Node 24+",
         "Clang",
-        "Apple macOS SDK"
+        "macOS: Apple SDK",
+        "GNU/Linux: Docker with the pinned Debian 12 maintainer image and patchelf"
       ],
       "automatic": false
     }
