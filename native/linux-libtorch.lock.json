@@ -1,0 +1,8 @@
+{
+  "x64":{"kind":"libtorch","url":"https://download.pytorch.org/libtorch/cpu/libtorch-shared-with-deps-2.14.1%2Bcpu.zip","sha256":"0f02329a5266153cffa9dc12926ff2221fa626207b894d40bd61905cc2079821","bytes":127853266},
+  "arm64":{"kind":"wheel-libtorch","url":"https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp311-cp311-manylinux_2_28_aarch64.whl","sha256":"36a03a3f87ec875ca39c8e29eccbaf0fc704605f78a3f7f179f157048c3c395e","bytes":159226505},
+  "arm64Components":[
+    {"id":"arm-compute","version":"53.2.0","revision":"7b256bb7965f2fd99cdee790a4b0e56dab438a8c","url":"https://codeload.github.com/ARM-software/ComputeLibrary/tar.gz/7b256bb7965f2fd99cdee790a4b0e56dab438a8c","sha256":"6006a52b3ef375a728af688a743cddf8d031acab9e8a2b1076308116365c5eee","bytes":8479420,"directory":"ComputeLibrary-7b256bb7965f2fd99cdee790a4b0e56dab438a8c","licenses":"LICENSES","binary":"libarm_compute.so"},
+    {"id":"openblas","version":"0.3.34","url":"https://codeload.github.com/OpenMathLib/OpenBLAS/tar.gz/refs/tags/v0.3.34","sha256":"cd7e129868320cc2d033afa920e31202dfe0b8066a5b66661900ccc0f197dfed","bytes":25326686,"directory":"OpenBLAS-0.3.34","licenses":"LICENSE","binary":"libopenblas.so.0"}
+  ]
+}

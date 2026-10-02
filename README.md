@@ -49,4 +49,6 @@ Maintain binding declarations and the descriptor together. Run `aug check .`, `a
 
 The prebuilt archive includes upstream notices, provenance, a runtime dependency inventory and a whole-file manifest. Installing this package does not run build scripts. An unsupported target or missing artifact is an error; there is no automatic source-build fallback.
 
+Linux x86-64 and ARM64 candidates are built on Debian 12 with a glibc 2.36 floor. Their publication and installed-CLI qualification are tracked separately from the current macOS artifacts. See [the native maintainer workflow](native/LINUX.md). Do not use a candidate hash as a public download until its exact archive has been published.
+
 This preview covers CPU, one-dimensional float64 tensors and copied results. GPU, autograd, model loading, retained views and broader LibTorch APIs are outside this release. The collected binary notices are recorded in `native/licenses/provenance.json`; an exhaustive upstream binary SBOM remains unavailable.
