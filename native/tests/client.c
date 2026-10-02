@@ -27,7 +27,7 @@ static void once(void) {
   assert(aug_torch_tensor_from_f64_v1(left_values, UINT64_MAX, &failed, &error) == 1 && failed == NULL);
   assert(aug_torch_tensor_sum_v1(NULL, &sum, &error) == 1);
   assert(aug_torch_tensor_from_f64_v1(right_values, 2, &short_tensor, &error) == 0);
-  const uint64_t before = aug_probe_live_tensors_v1();
+  const int64_t before = aug_probe_live_tensors_v1();
   assert(aug_torch_tensor_add_v1(left, short_tensor, &failed, &error) == 2 && failed == NULL);
   assert(error.code == 2 && error.message[0] != '\0');
   assert(aug_probe_live_tensors_v1() == before && aug_probe_live_buffers_v1() == 0);

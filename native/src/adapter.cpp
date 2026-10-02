@@ -10,8 +10,8 @@
 #include <stdexcept>
 #include <utility>
 
-static std::atomic<uint64_t> live_tensors{0};
-static std::atomic<uint64_t> live_buffers{0};
+static std::atomic<int64_t> live_tensors{0};
+static std::atomic<int64_t> live_buffers{0};
 struct aug_torch_tensor_v1 {
   at::Tensor tensor;
   explicit aug_torch_tensor_v1(at::Tensor value) : tensor(std::move(value)) { ++live_tensors; }
@@ -74,5 +74,5 @@ extern "C" int32_t aug_torch_tensor_values_v1(const aug_torch_tensor_v1 *tensor,
 }
 extern "C" void aug_torch_tensor_release_v1(aug_torch_tensor_v1 *tensor) noexcept { delete tensor; }
 extern "C" void aug_torch_values_release_v1(double *values) noexcept { if (values) { std::free(values); --live_buffers; } }
-extern "C" uint64_t aug_probe_live_tensors_v1(void) noexcept { return live_tensors.load(); }
-extern "C" uint64_t aug_probe_live_buffers_v1(void) noexcept { return live_buffers.load(); }
+extern "C" int64_t aug_probe_live_tensors_v1(void) noexcept { return live_tensors.load(); }
+extern "C" int64_t aug_probe_live_buffers_v1(void) noexcept { return live_buffers.load(); }
