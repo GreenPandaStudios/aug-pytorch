@@ -4,6 +4,7 @@ import {resolve,join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {fileURLToPath} from 'node:url';
+import {preparePatchedLibstdcxx} from './prepare-patched-libstdcxx.mjs';
 
 export async function prepareLinuxRuntimes(root=resolve(import.meta.dirname,'..'),output=join(root,'.aug-build/linux-runtimes'),{tools=false,fortran=false}={}) {
   if(process.platform!=='linux'||!['x64','arm64'].includes(process.arch))throw new Error('Linux redistribution inputs require a native GNU/Linux maintainer');
@@ -21,11 +22,12 @@ export async function prepareLinuxRuntimes(root=resolve(import.meta.dirname,'..'
     else copyFileSync(file,join(output,'sources',input.file));
     records.push(input);
   }
+  const patched=preparePatchedLibstdcxx(root,output,join(output,'unpacked/usr/lib/'+gnu+'/libstdc++.so.6.0.30'));
   const libraries=[['libstdc++.so.6','usr/lib/'+gnu+'/libstdc++.so.6.0.30'],['libgcc_s.so.1','lib/'+gnu+'/libgcc_s.so.1'],['libgomp.so.1','usr/lib/'+gnu+'/libgomp.so.1.0.0'],['libz.so.1','lib/'+gnu+'/libz.so.1.2.13']];
   if(tools)libraries.push(...['libicui18n','libicuuc','libicudata'].map(name=>[name+'.so.70','usr/lib/'+gnu+'/'+name+'.so.70.1']),['liblzma.so.5','lib/'+gnu+'/liblzma.so.5.4.1']);
   if(fortran){if(process.arch!=='arm64')throw new Error('The qualified Fortran runtime currently targets ARM64 only');libraries.push(['libgfortran.so.5','usr/lib/'+gnu+'/libgfortran.so.5.0.0']);}
   for(const [name,path] of libraries){
-    const file=join(output,'lib',name);copyFileSync(join(output,'unpacked',path),file);
+    const file=join(output,'lib',name);copyFileSync(name==='libstdc++.so.6'?patched.library:join(output,'unpacked',path),file);
     run('patchelf',['--set-rpath','$ORIGIN',file]);
     for(const match of run('readelf',['--version-info',file]).matchAll(/\bGLIBC_(\d+)\.(\d+)\b/g))if(Number(match[1])>2||Number(match[1])===2&&Number(match[2])>36)throw new Error('Pinned Linux library exceeds its libc floor: '+name);
   }
@@ -39,9 +41,13 @@ export async function prepareLinuxRuntimes(root=resolve(import.meta.dirname,'..'
     if(result.status!==0)throw new Error('Pinned GCC source extraction failed');writeFileSync(nested,result.stdout);
   }
   for(const name of ['COPYING3','COPYING.LIB','COPYING.RUNTIME'])writeFileSync(join(output,'licenses',name+'.txt'),run('tar',['-xOf',nested,'gcc-12.2.0/'+name]));
-  writeFileSync(join(output,'sources/Linux-runtime-BUILD.md'),'# Linux runtime redistribution inputs\n\nThese are the unmodified Debian 12 GCC 12.2 and zlib 1.2.13 source archives and Debian patches for the pinned runtime packages. Build instructions and package rules are inside the Debian tar archives. The distributed libraries have only their ELF search path changed to `$ORIGIN`; use `patchelf --set-rpath \'$ORIGIN\' LIBRARY` after a Debian package build.\n\nThe compiler uses these replaceable dynamic libraries for its LLVM tools. A native package may deploy the same locked libraries when its own binary requires them. No libc, SDK headers, compiler startup objects or executable build scripts are installed in an August application.\n');
+  for(const file of ['native/gcc12-aligned-new.patch','native/tests/aligned-new-overflow.cpp'])copyFileSync(join(root,file),join(output,'sources',file.split('/').at(-1)));
+  copyFileSync(fileURLToPath(new URL('./prepare-patched-libstdcxx.mjs',import.meta.url)),join(output,'sources/prepare-patched-libstdcxx.mjs'));
+  copyFileSync(fileURLToPath(import.meta.url),join(output,'sources/prepare-linux-runtimes.mjs'));
+  copyFileSync(join(root,'native/linux-runtimes.lock.json'),join(output,'sources/linux-runtimes.lock.json'));
+  copyFileSync(join(root,'native/GNU_RUNTIME_BUILD.md'),join(output,'sources/Linux-runtime-BUILD.md'));
   const files={};for(const folder of ['lib','licenses','sources'])for(const file of readdirSync(join(output,folder)))files[folder+'/'+file]=sha(join(output,folder,file));
-  writeFileSync(join(output,'redistribution.json'),JSON.stringify({format:1,distribution:lock.distribution,minimumLibc:lock.minimumLibc,arch:process.arch,gcc:lock.gcc,zlib:lock.zlib,...(tools?{icu:lock.icu,xz:lock.xz}:{}),inputs:records,files},null,2)+'\n');
+  writeFileSync(join(output,'redistribution.json'),JSON.stringify({format:1,distribution:lock.distribution,minimumLibc:lock.minimumLibc,arch:process.arch,gcc:lock.gcc,libstdcxx:patched.record,zlib:lock.zlib,...(tools?{icu:lock.icu,xz:lock.xz}:{}),inputs:records,files},null,2)+'\n');
   return output;
 }
 if(process.argv[1]===fileURLToPath(import.meta.url))console.log(await prepareLinuxRuntimes());

@@ -1,0 +1,12 @@
+{
+  "format": 1,
+  "package": "mkl-static",
+  "version": "2024.2.0",
+  "url": "https://files.pythonhosted.org/packages/c1/44/42ea3ad7bbaa65acb54c977961118d7b24ea687e7c3d64aba0a019cbfa19/mkl_static-2024.2.0-py2.py3-none-manylinux1_x86_64.whl",
+  "archiveSha256": "8c2a6c6a144c5619f1df75fd550b32730f3e0632b55a15a42a95516e142ccf47",
+  "archiveBytes": 212863789,
+  "member": "mkl_static-2024.2.0.dist-info/LICENSE.txt",
+  "output": "mkl-static-2024.2.0/LICENSE.txt",
+  "sha256": "7721633d0ddff43fae25ebfd405f8166a0ce730cbcec44f2f3ad9d5eb8ac9a6f",
+  "bytes": 4105
+}

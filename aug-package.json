@@ -166,10 +166,10 @@
             "float64"
           ]
         },
-        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.1.4/native-macos-arm64.tar.gz",
-        "sha256": "a130f4a67b574456e5eb0538dc099cb99e5356fdb47ebd4926da6f9b65ccb1e1",
-        "maximumDownloadBytes": 92487957,
-        "maximumUnpackedBytes": 388370911,
+        "url": "https://github.com/GreenPandaStudios/aug-pytorch/releases/download/v0.2.0/native-macos-arm64.tar.gz",
+        "sha256": "b328389d5d2fafaa20a80c938dd5b2f68ff74d47ad53764c5d55fc7dcc7a0a4e",
+        "maximumDownloadBytes": 92520653,
+        "maximumUnpackedBytes": 388427494,
         "link": {
           "kind": "dynamic",
           "libraries": [

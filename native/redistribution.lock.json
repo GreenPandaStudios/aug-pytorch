@@ -1,0 +1,163 @@
+{
+  "format": 1,
+  "pytorchRevision": "5c4886908584029761b579af026dcfb627c84070",
+  "scope": "Reviewed CPU dependency closure and known component notices; not an exhaustive upstream static link map or legal clearance",
+  "baseNoticeInventorySha256": "e0e3975a7a8ab257dba57e93a6224c79211f76073fa9fb30b2453867253fbeea",
+  "additionalNotices": [
+    {
+      "path": "fbgemm/LICENSE",
+      "url": "https://raw.githubusercontent.com/pytorch/FBGEMM/bf6dce360a4fe133bc779e2fd036277678509f95/LICENSE",
+      "sha256": "12c2370ec32e78115dcd71ba22cdcb1297320fdc4ade81f798136d42357c58b8",
+      "bytes": 1535,
+      "output": "linux-cpu/fbgemm/LICENSE",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "path": "asmjit/LICENSE.md",
+      "url": "https://raw.githubusercontent.com/asmjit/asmjit/a3199e8857792cd10b7589ff5d58343d2c9008ea/LICENSE.md",
+      "sha256": "8fc74133788bc8a7aa94168e9913a2d0b0e3f0a6064a0e72a0f1206d5ce9189e",
+      "bytes": 862,
+      "output": "linux-cpu/asmjit/LICENSE.md",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "path": "ideep/LICENSE",
+      "url": "https://raw.githubusercontent.com/intel/ideep/e087b6e4b32a7ba684db82231d1558123968ac1d/LICENSE",
+      "sha256": "a26add03107a53a605a89711b9b7dbd4f5dd668ae193a912e01a879366a23b0e",
+      "bytes": 1062,
+      "output": "linux-cpu/ideep/LICENSE",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "path": "onednn/LICENSE",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/LICENSE",
+      "sha256": "e9fc874fc09801b9acf3411ba72394098473704d832d713404b6c4861a086318",
+      "bytes": 11607,
+      "output": "linux-cpu/onednn/LICENSE",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "path": "onednn/xbyak/COPYRIGHT",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak/COPYRIGHT",
+      "sha256": "f8ddc1b38c2ba3d472abe83d66bd5bad6206e9fe50ac33ea3872069056beb8e2",
+      "bytes": 3399,
+      "output": "linux-cpu/onednn/xbyak/COPYRIGHT",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "path": "onednn/ittnotify/LICENSE.BSD",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/ittnotify/LICENSE.BSD",
+      "sha256": "51e80f0261cdc1962e9b9a1c80f9aa6a7adf0b05f0f217caf59141f59b2ad1c1",
+      "bytes": 1503,
+      "output": "linux-cpu/onednn/ittnotify/LICENSE.BSD",
+      "targets": [
+        "linux-x64",
+        "linux-arm64"
+      ],
+      "scope": "known or conservatively retained CPU/header component"
+    },
+    {
+      "output": "linux-cpu/mkl-static-2024.2.0/LICENSE.txt",
+      "sha256": "7721633d0ddff43fae25ebfd405f8166a0ce730cbcec44f2f3ad9d5eb8ac9a6f",
+      "bytes": 4105,
+      "targets": [
+        "linux-x64"
+      ],
+      "scope": "Intel MKL 2024.2.0 binary terms"
+    },
+    {
+      "output": "linux-cpu/onednn/xbyak-aarch64-NOTICES.txt",
+      "sha256": "d8d96b70e6ec55a941c5bacaed035da17f7d88317ee4ab032e903febaf8d1280",
+      "bytes": 3367,
+      "targets": [
+        "linux-arm64"
+      ],
+      "scope": "Fujitsu CPU assembler header copyright notices"
+    }
+  ],
+  "upstreamLibraries": {
+    "linux-x64": {
+      "libc10.so": "34e3830d7529dcf4d6072ae9930f5b95ee08edb60b410d471cf5e629de686fb8",
+      "libtorch_cpu.so": "5fe351a59d2ede41a4c203a4474577321a4c135dd7206c25ec97bad813580999"
+    },
+    "linux-arm64": {
+      "libc10.so": "a6b9e6a5a070196e975d6d71bfb0459b7a86b85fd78a9d54e2b884e9d7a990b1",
+      "libtorch_cpu.so": "2befcd2b97a282fb2f2cc0ce069f9943dd12c67cf88ab41c17824966f750e14d",
+      "libarm_compute.so": "0ced99eae0b50433b3dc62146a915a64cdf41e8f760114899b62a244ac9f2c82",
+      "libarm_compute_graph.so": "52d09a8bd651415cb93e68b66759201288b5ae323643aef5bdf4c00f310d4334",
+      "libopenblas.so.0": "55da8b468e2734b2704725480c2d93c7e2b90fb91812ec91e0935316a6769756"
+    },
+    "macos-arm64": {
+      "libtorch_cpu.dylib": "886a21732227bea91a64dcc355bdea98808fab5014a84891de2fe3a081744079",
+      "libc10.dylib": "332fdb431f20a9690f38be0768cab415584480c2ce31744153347778f85a04d8",
+      "libomp.dylib": "6256bee09e93c28d71c65711cc69224d69994c6965648b628b70a22772fe98d4"
+    }
+  },
+  "requiredRuntimeFiles": {
+    "linux-arm64": [
+      "lib/libarm_compute.so",
+      "lib/libarm_compute_graph.so",
+      "lib/libaug_torch.so.1",
+      "lib/libc10.so",
+      "lib/libgcc_s.so.1",
+      "lib/libgfortran.so.5",
+      "lib/libgomp.so.1",
+      "lib/libopenblas.so.0",
+      "lib/libstdc++.so.6",
+      "lib/libtorch_cpu.so",
+      "lib/libz.so.1"
+    ],
+    "linux-x64": [
+      "lib/libaug_torch.so.1",
+      "lib/libc10.so",
+      "lib/libgcc_s.so.1",
+      "lib/libgomp.so.1",
+      "lib/libstdc++.so.6",
+      "lib/libtorch_cpu.so"
+    ],
+    "macos-arm64": [
+      "lib/libaug_torch.1.dylib",
+      "lib/libc10.dylib",
+      "lib/libomp.dylib",
+      "lib/libtorch_cpu.dylib"
+    ]
+  },
+  "gnuRequiredMaterials": {
+    "licenses/COPYING.LIB.txt": "a9bdde5616ecdd1e980b44f360600ee8783b1f99b8cc83a2beb163a0a390e861",
+    "licenses/COPYING.RUNTIME.txt": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74",
+    "licenses/COPYING3.txt": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+    "licenses/GCC-Debian.txt": "da8191658b3452ce9caf31638ba61dab31a38c619fa39df119812e050f592fd3",
+    "licenses/zlib-Debian.txt": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6",
+    "sources/aligned-new-overflow.cpp": "9db8b72822f75033e5c89367f31d1e1e27634626463c60905448d9aea490c312",
+    "sources/gcc-12_12.2.0-14+deb12u1.debian.tar.xz": "59f7f7763a0c355e3f27ff9e7ac80d06382b29939361a87e7b139226bfe7402e",
+    "sources/gcc-12_12.2.0.orig.tar.gz": "b8298be16aeeb96a889c6afed0a8e2241b47452e89cc81fe65ea849d5c740fcb",
+    "sources/gcc12-aligned-new.patch": "e1b0ba173860d3f0c3a468e166328b2f2acc05938726cf752c5e1ae2bc3fe261",
+    "sources/prepare-patched-libstdcxx.mjs": "512ec3840084266d506014a8a8e218f23460396170c6621d7920f595cfe27aa3",
+    "sources/zlib_1.2.13.dfsg-1.debian.tar.xz": "f66cf3d4f2d7defcd4d1fd1fb0a11ee39f1e01b42ec7d059c9dc5c1695133c44",
+    "sources/zlib_1.2.13.dfsg.orig.tar.bz2": "71feb7947e3c00ef125f83b79a4e529bde31171e5babe48b391f06758d1ab0a1"
+  },
+  "directNotices": {
+    "licenses/LICENSE.pytorch": "bd018feef8825e88181c84eb7e3aa4eafb8f08a20d9fd6ef948569610c4a3e43",
+    "licenses/NOTICE.pytorch": "c2cc7bf0caec7652c2b460a8a470bea1677f241e4ab8e431df34cf17f5a9fec0"
+  }
+}

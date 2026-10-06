@@ -6,4 +6,6 @@ The Linux ARM64 CPU closure includes OpenBLAS 0.3.34 and Arm Compute Library 53.
 
 Linux artifacts include the required GCC 12 runtime libraries, with full source inputs, Debian patches, copyright files, GPL/LGPL texts and the GCC Runtime Library Exception. GNU dependencies remain replaceable shared files. Preserve these notices and the source/license directories when redistributing a bundle.
 
-The upstream CPU distribution contains additional statically incorporated components. The collected notices do not constitute an exhaustive binary SBOM. This limit remains part of the preview's qualification record.
+The upstream CPU distribution contains additional statically incorporated components. The collected notices do not constitute an exhaustive binary SBOM. Each artifact records its bounded review scope; it is not an exhaustive upstream static link map or legal clearance.
+
+The Linux C++ runtime includes the retained GCC aligned-allocation overflow backport. Its source, patch, maintainer recipe and native regression receipt accompany the replaceable shared runtime. Linux LibTorch DSOs are shipped without additional loader rewrites.

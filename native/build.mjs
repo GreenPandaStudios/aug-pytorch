@@ -5,6 +5,7 @@ import {resolve,join,basename} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 import {nativeSourceIdentity} from './source-identity.mjs';
+import {reconcileRedistribution} from './reconcile-redistribution.mjs';
 const root=resolve(import.meta.dirname,'..'),manifest=JSON.parse(readFileSync(join(root,'aug-package.json'))),name=manifest.name.split('/').at(-1).slice(4),lock=JSON.parse(readFileSync(join(root,'native/sources.lock.json')));
 const packageVersion=JSON.parse(readFileSync(join(root,'aug-package.json'))).version;
 if(process.platform==='linux'){await import('./build-linux.mjs');process.exit();}
@@ -29,12 +30,14 @@ const archive=join(cache,'libtorch.zip');await download(lock.inputs[0].url,archi
 }
 const licenseFolder=join(root,'native/licenses');if(existsSync(licenseFolder))cpSync(licenseFolder,join(out,'licenses'),{recursive:true});
 copyFileSync(join(root,'LICENSE'),join(out,'licenses/august-adapter.txt'));copyFileSync(join(root,'THIRD_PARTY_NOTICES.md'),join(out,'THIRD_PARTY_NOTICES.md'));
+for(const entry of readdirSync(join(out,'lib'),{withFileTypes:true}))if(entry.isDirectory())rmSync(join(out,'lib',entry.name),{recursive:true});
 const libs=readdirSync(join(out,'lib'),{withFileTypes:true}).filter(e=>e.isFile()).map(e=>e.name).sort(),closure=libs.map(file=>({path:'lib/'+file,sha256:hash(readFileSync(join(out,'lib',file))),loadCommands:run('/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/otool',['-L',join(out,'lib',file)]),platform:run('/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/otool',['-l',join(out,'lib',file)])}));
 writeFileSync(join(out,'runtime-files.json'),JSON.stringify({format:1,files:closure},null,2)+'\n');
+const preservedUpstream=Object.fromEntries(['libtorch_cpu.dylib','libc10.dylib','libomp.dylib'].map(file=>[file,hash(readFileSync(join(upstream,'lib',file)))]));
+reconcileRedistribution(root,out,'macos-arm64',preservedUpstream);
 const sourceIdentity=nativeSourceIdentity(root);
-writeFileSync(join(out,'provenance.json'),JSON.stringify({format:1,source:sourceIdentity,package:basename(root),target:lock.target,minimumOS:lock.minimumOS,inputs:lock,compiler:run(cc,['--version']).trim(),adapter:hash(readFileSync(join(root,'native/src/adapter.'+(name==='pytorch'?'cpp':name==='blake3'?'rs':'c')))),runtimeInspection:'runtime-files.json'},null,2)+'\n');
+writeFileSync(join(out,'provenance.json'),JSON.stringify({format:1,source:sourceIdentity,package:basename(root),target:lock.target,minimumOS:lock.minimumOS,inputs:lock,compiler:run(cc,['--version']).trim(),adapter:hash(readFileSync(join(root,'native/src/adapter.'+(name==='pytorch'?'cpp':name==='blake3'?'rs':'c')))),runtimeInspection:'runtime-files.json',upstreamBinaryPreservation:preservedUpstream,redistributionReview:'redistribution-review.json'},null,2)+'\n');
 writeFileSync(join(out,'sbom.json'),JSON.stringify({format:1,upstream:lock.upstream,runtimeFiles:closure.map(f=>({path:f.path,sha256:f.sha256})),componentNotices:existsSync(join(out,'licenses/provenance.json'))?JSON.parse(readFileSync(join(out,'licenses/provenance.json'))):undefined,licenseFiles:readdirSync(join(out,'licenses')),cargo:name==='blake3'?readFileSync(join(root,'native/Cargo.lock'),'utf8'):undefined},null,2)+'\n');
-for(const entry of readdirSync(join(out,'lib'),{withFileTypes:true}))if(entry.isDirectory())rmSync(join(out,'lib',entry.name),{recursive:true});
 const files={};let unpacked=0;const walk=(folder,prefix='')=>{for(const entry of readdirSync(folder,{withFileTypes:true})){const path=prefix+entry.name;if(entry.isDirectory())walk(join(folder,entry.name),path+'/');else{const bytes=readFileSync(join(folder,entry.name));unpacked+=bytes.length;files[path]=hash(bytes);}}};walk(out);
 writeFileSync(join(out,'files.json'),JSON.stringify({format:1,files},null,2)+'\n');unpacked+=readFileSync(join(out,'files.json')).length;
 const archive=join(cache,'native-macos-arm64.tar.gz');run('/usr/bin/tar',['-czf',archive,'-C',out,...readdirSync(out).sort()],{env:{...process.env,COPYFILE_DISABLE:'1'}});
