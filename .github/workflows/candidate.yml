@@ -44,6 +44,11 @@ jobs:
           docker start --attach candidate
           docker cp candidate:/package/.aug-build .aug-build
           docker cp candidate:/package/aug-package.json aug-package.json
+      - name: Reject altered redistribution materials and upstream binaries
+        run: |
+          node --test scripts/candidate-workflow.test.mjs
+          node scripts/test-redistribution.mjs .aug-build/${{ matrix.directory }}/artifact
+          node scripts/test-candidate-materials.mjs .aug-build/${{ matrix.directory }}/candidate.json
       - name: Verify build inputs before collecting the candidate
         run: node native/verify-candidate.mjs .aug-build/${{ matrix.directory }}/candidate.json
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7

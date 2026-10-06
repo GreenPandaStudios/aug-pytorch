@@ -1,0 +1,142 @@
+{
+  "format": 1,
+  "profile": "aug-native-abi-1",
+  "resources": [
+    {
+      "module": "bindings",
+      "name": "Tensor",
+      "release": "aug_torch_tensor_release_v1"
+    }
+  ],
+  "functions": [
+    {
+      "module": "api",
+      "name": "_tensor",
+      "symbol": "aug_torch_tensor_from_f64_v1",
+      "params": [
+        {
+          "name": "values",
+          "kind": "f64-list"
+        }
+      ],
+      "result": {
+        "kind": "resource",
+        "resource": "bindings.Tensor"
+      },
+      "error": "contracts.TensorError",
+      "callingConvention": "C",
+      "status": "i32",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    },
+    {
+      "module": "api",
+      "name": "_add",
+      "symbol": "aug_torch_tensor_add_v1",
+      "params": [
+        {
+          "name": "left",
+          "kind": "resource",
+          "resource": "bindings.Tensor",
+          "ownership": "read"
+        },
+        {
+          "name": "right",
+          "kind": "resource",
+          "resource": "bindings.Tensor",
+          "ownership": "read"
+        }
+      ],
+      "result": {
+        "kind": "resource",
+        "resource": "bindings.Tensor"
+      },
+      "error": "contracts.TensorError",
+      "callingConvention": "C",
+      "status": "i32",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    },
+    {
+      "module": "api",
+      "name": "_sum",
+      "symbol": "aug_torch_tensor_sum_v1",
+      "params": [
+        {
+          "name": "tensor",
+          "kind": "resource",
+          "resource": "bindings.Tensor",
+          "ownership": "read"
+        }
+      ],
+      "result": {
+        "kind": "f64"
+      },
+      "error": "contracts.TensorError",
+      "callingConvention": "C",
+      "status": "i32",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    },
+    {
+      "module": "api",
+      "name": "_values",
+      "symbol": "aug_torch_tensor_values_v1",
+      "params": [
+        {
+          "name": "tensor",
+          "kind": "resource",
+          "resource": "bindings.Tensor",
+          "ownership": "read"
+        }
+      ],
+      "result": {
+        "kind": "f64-list",
+        "release": "aug_torch_values_release_v1"
+      },
+      "error": "contracts.TensorError",
+      "callingConvention": "C",
+      "status": "i32",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    },
+    {
+      "module": "api",
+      "name": "_liveTensors",
+      "symbol": "aug_probe_live_tensors_v1",
+      "params": [],
+      "result": {
+        "kind": "i64"
+      },
+      "callingConvention": "C",
+      "status": "direct",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    },
+    {
+      "module": "api",
+      "name": "_liveBuffers",
+      "symbol": "aug_probe_live_buffers_v1",
+      "params": [],
+      "result": {
+        "kind": "i64"
+      },
+      "callingConvention": "C",
+      "status": "direct",
+      "uses": [],
+      "changes": [],
+      "thread": "caller",
+      "retainsInputs": false
+    }
+  ]
+}

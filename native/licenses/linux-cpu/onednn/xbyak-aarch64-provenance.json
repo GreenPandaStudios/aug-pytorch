@@ -1,0 +1,165 @@
+{
+  "format": 1,
+  "revision": "80afa71049cd69a3df32adcccb623b12cd7baa22",
+  "output": "xbyak-aarch64-NOTICES.txt",
+  "sha256": "d8d96b70e6ec55a941c5bacaed035da17f7d88317ee4ab032e903febaf8d1280",
+  "transformation": "Complete leading copyright/license block retained from each pinned source; identical blocks deduplicated; implementation omitted",
+  "files": [
+    {
+      "path": "third_party/xbyak_aarch64/src/err_impl.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/err_impl.h",
+      "sourceSha256": "a620d80dde6dc72bdeee940ebd2eabcb383bc7eb7146d9bbbd166c7ccd9f9458",
+      "gitBlobSha1": "598f6ca8ed2d137babdec796d96ff40b195cdfbc",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/util_impl.cpp",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/util_impl.cpp",
+      "sourceSha256": "b665b0c842cd03288111dbbe761e4e02528f05c85cb8fe343af0efa59166aa69",
+      "gitBlobSha1": "5763362bacca55759381ebd198de839eedc92d6e",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/util_impl.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/util_impl.h",
+      "sourceSha256": "531ab874dba8db7fd751b2518fae71db5183a553e37ccb4d23b563589b0c1d50",
+      "gitBlobSha1": "db3a7bd648b43105bae4b87f2c64ec87f6ed2f8a",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/util_impl_linux.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/util_impl_linux.h",
+      "sourceSha256": "a00942f8a570e38a0103039baaa7358776400e5bf583c960a7f6ad59a61fb757",
+      "gitBlobSha1": "a8448e1319a8258c694e0a29b5995c8b93ffb82c",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/util_impl_mac.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/util_impl_mac.h",
+      "sourceSha256": "4d883531fc2f556e13e64c0be8b652c9f6ede3e62fa796f7e82b50583abe6414",
+      "gitBlobSha1": "ebd6dba7c0db36b837ef4b5127788c6b8fec2796",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/util_impl_windows.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/util_impl_windows.h",
+      "sourceSha256": "7f94f7d7d7e24d328775b45f827418e4ae9c4b248b92fc2cf79b770593b1198c",
+      "gitBlobSha1": "7676b1ff0147e3d77f9813d55b854f0fa857da70",
+      "noticeSha256": "77b4ec82cd921b5e0509e24b3fd38ad839c5cc6fd23469082f3b0d05b415dd05"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/xbyak_aarch64_impl.cpp",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/xbyak_aarch64_impl.cpp",
+      "sourceSha256": "587556fa807f52d636d755f147057db14312d93e517262345ae6b030bc7d3f49",
+      "gitBlobSha1": "ab30dd348a29d0842b0f50653b8824bd83a18c57",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/xbyak_aarch64_impl.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/xbyak_aarch64_impl.h",
+      "sourceSha256": "492da564ed7a5c6e09bda4568af55c0672ace25b42c5b3d6b77d89907b8b0d57",
+      "gitBlobSha1": "58f044f0ff5ae169c8926c6ab1d40da2c8006046",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/src/xbyak_aarch64_mnemonic.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/src/xbyak_aarch64_mnemonic.h",
+      "sourceSha256": "13c39788470bc5caf08f914cfd1aca5018022e0e81ed7ad1c6522447454c3f19",
+      "gitBlobSha1": "bc813ce5a54ad8cf1db42b890e13202d24f7f463",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64.h",
+      "sourceSha256": "e260a451326ddeb98b74d05796fcf8cd6236bd44d800ff39b4f801189d500f60",
+      "gitBlobSha1": "ab1e8a538af52cd2d0fb2ab77599c218a59f91d3",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_adr.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_adr.h",
+      "sourceSha256": "e57fd2f630b73a1bce7366e04d34359bf336203fe66c7bbbf742b11746371cf1",
+      "gitBlobSha1": "643678f8ad98f9fa93dfdc2987d8f4ec53239621",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_code_array.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_code_array.h",
+      "sourceSha256": "5da5bfde6fb27e243cd36c2272ce4442cecd6ddfeea89d0a40ce46ef22569384",
+      "gitBlobSha1": "afb78509d1cfad3509850f5cad513cf0f7be38fb",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_err.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_err.h",
+      "sourceSha256": "abbdcef0f2675b19d24e4fb2c3880ca61b939f99918e70050a2e48b7c5b583b9",
+      "gitBlobSha1": "403a9c49787a18d86dec58cc3b0ad81324aa0801",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_gen.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_gen.h",
+      "sourceSha256": "8cb36c3a0bc90d27f4116aff2eddbfa453f940665842fdcbd903af915b8ecd42",
+      "gitBlobSha1": "de928ff8d823d7e5e0199817617a55ba549b3afd",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_inner.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_inner.h",
+      "sourceSha256": "de33911d48c33e9d205d30f02ed700e90c51dbd7325aed910819dc0843aee633",
+      "gitBlobSha1": "5ecc1f3ecb4b88fb7891fb950b81c2205250a456",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_label.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_label.h",
+      "sourceSha256": "6fcb59d9c709f40e0c26af266bdb71e38d6f9ac9ba258e870ea2cb6f9efc2536",
+      "gitBlobSha1": "1c88c8301dda8b3874dc6481a6ead51f31e4d25f",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_meta_mnemonic.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_meta_mnemonic.h",
+      "sourceSha256": "87b33e6cfa87d5fdf1d1d3db4a71393b30bbf56bed671e6a56d121f72efc2cf3",
+      "gitBlobSha1": "334c66cdc1e430cc3d43a928b1ff105e724361fe",
+      "noticeSha256": "4fc0a1c29cbea16e3f9c2735dcdfba78f1244b34606f9d4a16e6fbac7263292d"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_mnemonic_def.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_mnemonic_def.h",
+      "sourceSha256": "8eb4fce25e7379b76b2080545c92c425790021738fde3b91fcd96c88f109a75b",
+      "gitBlobSha1": "9992e6669732c4fbab289e736397430c17a9478f",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_perf.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_perf.h",
+      "sourceSha256": "75ca0dd96126e73596866da737fc1a5f190dc25193cc1aca1035740723d35d82",
+      "gitBlobSha1": "06b3b1df173da423d54c8bfc75a847a2203f2782",
+      "noticeSha256": "5f191922b7c2ae32bf0ef0c6eb623f754ea923468b50fa37956a71e9cbf9be40"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_reg.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_reg.h",
+      "sourceSha256": "7982bba6670a5308bf79551ad651a15069ad4bdbb68036009f38a5bf87905570",
+      "gitBlobSha1": "0b5b0af43abddcc289e64b862385a398baffa2de",
+      "noticeSha256": "4fc0a1c29cbea16e3f9c2735dcdfba78f1244b34606f9d4a16e6fbac7263292d"
+    },
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_util.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_util.h",
+      "sourceSha256": "a3a46005885b5571d5cb62a0ee91c0889a4df048470f09e20eb3de5b731dc86d",
+      "gitBlobSha1": "5c667f36c69c8bc73a239e2e2a3534c71d9cf685",
+      "noticeSha256": "e396963f0439e471e3ddef7bd5743d01fa6f19ea4aead4820a2bc6b14b49f280"
+    }
+  ],
+  "omissions": [
+    {
+      "path": "third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_version.h",
+      "url": "https://raw.githubusercontent.com/uxlfoundation/oneDNN/80afa71049cd69a3df32adcccb623b12cd7baa22/third_party/xbyak_aarch64/xbyak_aarch64/xbyak_aarch64_version.h",
+      "sourceSha256": "5b5d45860df715f312879b47fd7b08fd38cd3eabe83e45a0be0cb36318255b6b",
+      "gitBlobSha1": "64ec56583f7b98f610c5f915dcb02bfa553d1389",
+      "reason": "Version1.1.2 constants/functions have no source license or copyright header; no attribution text exists to extract"
+    }
+  ]
+}

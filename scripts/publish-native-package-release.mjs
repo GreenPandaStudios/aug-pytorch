@@ -7,6 +7,7 @@ import {tmpdir} from 'node:os';
 import {join,resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {verifyNativeReleaseDirectory} from './prepare-native-package-release.mjs';
+import {verifyCandidateWorkflow,readAssociatedRequests} from './candidate-workflow.mjs';
 
 const root=process.cwd();
 const manifest=JSON.parse(readFileSync(join(root,'aug-package.json')));
@@ -21,8 +22,10 @@ const gh=args=>{const result=spawnSync('gh',args,{encoding:'utf8',cwd:root});
   assert.equal(result.status,0,result.stderr||result.error?.message||'GitHub command failed');return result.stdout;};
 const run=JSON.parse(gh(['api',`repos/${repository}/actions/runs/${plan.runId}`]));
 assert.equal(run.conclusion,'success');assert.equal(run.status,'completed');
-assert.equal(run.head_sha,plan.sourceRevision);assert.equal(run.path,'.github/workflows/candidate.yml');
-assert.equal(run.repository.full_name,repository);
+const checkout=JSON.parse(gh(['api','repos/'+repository+'/commits/'+plan.sourceRevision]));
+const associatedRequests=run.event==='pull_request'&&run.pull_requests?.length===0
+  ?readAssociatedRequests(gh,repository,plan.workflowHeadRevision):[];
+verifyCandidateWorkflow(run,plan,repository,checkout,associatedRequests);
 const directory=resolve(process.argv[2]??join(root,'.aug-build/release'));
 const files=readdirSync(directory).sort();
 assert.deepEqual(files,['SHA256SUMS','native-linux-arm64.tar.gz','native-linux-x64.tar.gz','native-macos-arm64.tar.gz','release.json']);
@@ -41,7 +44,7 @@ const visibleRelease=async()=>{
 let release=findRelease();
 if(!release){
   gh(['release','create',tag,'--repo',repository,'--draft','--prerelease','--verify-tag','--title',manifest.name+' '+manifest.version,
-    '--notes','CPU native packages for the August 0.21.0 LLVM preview. Includes macOS ARM64 and Debian/Ubuntu GNU/Linux x64 and ARM64 artifacts. Source, licenses, dependency provenance and cleanup tests are recorded with the exact candidate archives.']);
+    '--notes','CPU native packages compatible with August 1.0.0. Includes macOS ARM64 and Debian/Ubuntu GNU/Linux x64 and ARM64 artifacts. Source, licenses, dependency provenance and native operation and cleanup tests are recorded with the exact candidate archives.']);
   release=await visibleRelease();
 }
 assert.ok(release,'Created release is not visible to this publishing identity');
