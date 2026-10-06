@@ -1,10 +1,20 @@
 {
   "format": 1,
   "files": [
+    ".aug-spec/diagrams/folders/src/index.md",
+    ".aug-spec/diagrams/index.md",
+    ".aug-spec/packages/@greenpandastudios/aug-pytorch/0.2.0/native.abi.json",
+    "src/api.aug.diagrams.md",
     "src/api.aug.md",
+    "src/bindings.aug.diagrams.md",
     "src/bindings.aug.md",
+    "src/contracts.aug.diagrams.md",
     "src/contracts.aug.md",
+    "src/export.aug.diagrams.md",
     "src/export.aug.md"
   ],
-  "digest": "9367af10b97f5cb230be37149c9ee8274e74c76a3133b0fa7a76e91660c3bbbc"
+  "nativeDescriptors": {
+    ".aug-spec/packages/@greenpandastudios/aug-pytorch/0.2.0/native.abi.json": "f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5"
+  },
+  "digest": "96957be440b726deecf17116907c274a0a05ed29b0ddf19a659af606f51238d4"
 }

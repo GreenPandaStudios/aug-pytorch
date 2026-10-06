@@ -2,6 +2,10 @@
 
 # `export.aug`
 
+<!-- August spec revision: schema=1 compiler=1.0.0 source-sha256=3789a1729917ad799ac485040ca0c1c328be83ef9de885c99c11945ff7ef1db5 -->
+
+[Interactions and sequences](export.aug.diagrams.md)
+
 ## Exports
 
 Export the declaration `Tensor` from [`bindings.aug`](bindings.aug.md#symbol-Tensor). Export the declaration `TensorError` from [`contracts.aug`](contracts.aug.md#symbol-TensorError). Export the declaration `tensor` from [`api.aug`](api.aug.md#symbol-tensor). Export the declaration `add` from [`api.aug`](api.aug.md#symbol-add).

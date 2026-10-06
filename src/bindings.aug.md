@@ -2,7 +2,11 @@
 
 # `bindings.aug`
 
+<!-- August spec revision: schema=1 compiler=1.0.0 source-sha256=9717fa15bb87aed2488ca081dc6d0d9487c38258ced18e992f0ee5fba8da1cbc -->
+
+[Interactions and sequences](bindings.aug.diagrams.md)
+
 <a id="symbol-Tensor"></a>
 ## `Tensor` · native resource · [source](bindings.aug#L2)
 
-Native implementation: `@greenpandastudios/aug-pytorch@0.1.5`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.1.5/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). An owned value releases its opaque handle through `aug_torch_tensor_release_v1` when its scope ends, including error and return paths.
+Native implementation: `@greenpandastudios/aug-pytorch@0.2.0`, `2.14.1`. Supported targets: linux arm64 glibc 2.36+ itanium-cxx11, linux x64 glibc 2.36+ itanium-cxx11, macos arm64 14.0+ apple-libc++. Binding contract: [`native.abi.json`](../.aug-spec/packages/%40greenpandastudios/aug-pytorch/0.2.0/native.abi.json) (SHA-256 `f07b8cab89ad7cfe368edcd9daf87ecc810adb6a2eed1f446d7b71fb664e91f5`). An owned value releases its opaque handle through `aug_torch_tensor_release_v1` when its scope ends, including error and return paths.
